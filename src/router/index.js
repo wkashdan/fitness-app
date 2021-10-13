@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from '../App.vue'
+import SelectTagsView from '../views/SelectTagsView.vue';
+import ContentFeedView from '../views/ContentFeedView.vue';
+import SavedContentView from '../views/SavedContentView.vue';
+import SearchView from '../views/SearchView.vue';
 
 Vue.use(VueRouter)
 
@@ -9,6 +13,28 @@ const routes = [
     path: '/',
     name: 'Home',
     component: App,
+    children: [
+      {
+        path: 'select-tags',
+        name: 'select-tags',
+        component: SelectTagsView,
+      },
+      {
+        path: 'feed',
+        name: 'feed',
+        component: ContentFeedView,
+      },
+      {
+        path: 'saves',
+        name: 'saves',
+        component: SavedContentView,
+      },
+      {
+        path: 'search',
+        name: 'search',
+        component: SearchView,
+      },
+    ]
   },
   {
     path: '/about',
